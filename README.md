@@ -4,7 +4,7 @@
 
 ****
 
-This test notebook and dataset were created to help teach new users and python beginners how to use gaiaAsscoiation (https://github.com/GreallyLab/gaiaAssociation) and RLEA analysis. Contained in this github repository are two of the three files you will need to replicate the gaiaAssociation analysis done within the gaiaAssociation paper.
+This test notebook and dataset were created to help teach new users and python beginners how to use gaiaAsscoiation (https://github.com/GreallyLab/gaiaAssociation) and perform RLEA analysis. Contained in this github repository are two of the three files you will need to replicate the analysis done within the gaiaAssociation paper.
 
 1. The example jupyter notebook which serves as a premade guide and explanatory tool for how to use gaiaAssociation within a jupyter notebook.
 
