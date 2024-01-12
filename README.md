@@ -8,7 +8,7 @@ This test notebook and dataset were created to help teach new users and python b
 
 1. The example jupyter notebook which serves as a premade guide and explanatory tool for how to use gaiaAssociation within a jupyter notebook.
 
-2. A zip file contining the .txt bed files for the 44 cell types ATAC-seq used in the gaiaAssociation paper.
+2. A zip file contining the .txt bed files for the 44 cell types of ATAC-seq data used in the gaiaAssociation paper.
 
 The third and final piece you will need to replicate our analysis is a copy of the GWAS Cataolog (which can be procured here: https://www.ebi.ac.uk/gwas/docs/file-downloads). Our copy of the GWAS catalog (v1.0) was procured on 07/29/2023, so yours may be slightly different, but the GWAS catalog file is too large to include within a github project.
 
