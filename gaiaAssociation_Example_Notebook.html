@@ -14629,6 +14629,9 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <span class="kn">import</span> <span class="nn">argparse</span>
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">root</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">warnings</span> 
+<span class="c1">## Due to pyranges certain repetetive warnings can appear while using gaiaAssociation, this filter is intended to avoid visual clutter</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span> 
 </pre></div>
 
      </div>
@@ -14669,7 +14672,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gaiaAssociation.gaiaAssociation</span>
@@ -14711,19 +14714,30 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </li>
 </ol>
 <p>A default run using just these required arguments on the attached data is given below:</p>
+<hr>
+<h4 id="Notes-Before-You-Run:">Notes Before You Run:<a class="anchor-link" href="#Notes-Before-You-Run:">&#182;</a></h4><ol>
+<li><p>Insure you have opened the Cell_Types zip file, and there is now a folder in the same place as the example notebook with the title "Cell_Types".</p>
+</li>
+<li><p>Insure you have downloaded the gwas catalog, or have added your own loci file in a .tsv or .csv format to as sub-folder in the same place as this example notebook. For simplicity I have the gwas catalog file referred to as "gwas_catalog.tsv" and placed it in a sub-folder titled "GWAS" in the following code, feel free to name yours this same title for simplicity, or to change the code to reflect your own file's name.</p>
+</li>
+<li><p>The Chromsome Size file given in this example notebook is based on Human Genome Assembly GRCh38.p14, the ATAC-seq files have been aligned to this genome assembly, and GWAS catalog as of 1/11/24 is as well. If your data is not on this genome build you will have to realign the ATAC-seq to your genome build and create a new chromosme size file, or you will have to convert you loci to GRCh38.p14 using a tool such as liftover.</p>
+</li>
+<li><p>The following code assumes that the working directory in python is set to the location of this notebook, and that the sub-folders you are using for ATAC-seq and Loci are located at the same place. This may not be true for your particular python environment, you can check the current working directory of your python environment by putting "os.getcwd()" into a blank code block and running it. If the resulting directory is not correctly set to the location of this jupyter notebook, you can set it by running "os.chdir(path)" where path is the location of this notebook.</p>
+</li>
+</ol>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gaiaAssociation</span><span class="o">.</span><span class="n">gaiaAssociation</span><span class="o">.</span><span class="n">gaiaAssociation</span><span class="p">(</span><span class="s2">"/User/OCR_Fules"</span><span class="p">,</span> <span class="s2">"/User/loci_Files"</span><span class="p">,</span> <span class="s2">"/User/Chrom/chrsize.csv"</span><span class="p">,</span> <span class="s2">"/User/Output"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gaiaAssociation</span><span class="o">.</span><span class="n">gaiaAssociation</span><span class="o">.</span><span class="n">gaiaAssociation</span><span class="p">(</span><span class="s2">"Cell_Types"</span><span class="p">,</span> <span class="s2">"GWAS"</span><span class="p">,</span> <span class="s2">"chrsize.csv"</span><span class="p">,</span> <span class="s2">"Output"</span><span class="p">,</span> <span class="n">lociSelection</span> <span class="o">=</span> <span class="s2">"Extras/studyGroups.tsv"</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14731,45 +14745,18 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Due to automatic formatting of the heatmaps, and the often extraordinarily long names of GWAS studies, the graphics printed inline here are often very difficult to see and vizualize. Thankfully you can find all the results you need in the newly create Output folder created at the same place as this jupyter notebook. Inside you will find five files. A complete pdf figure that contains the ATAC dendrogram, the p-value heatmap, both with and without labels, as well as two pdf files containing the dendrogram nad heatmpa spereately. You can find the heatmap matrix values in a .txt file, as well as the overall overlap count between each loci set and each atac as another matrix file.</p>
 
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-An exception has occurred, use %tb to see the full traceback.
-
-<span class="ansi-red-fg">SystemExit</span><span class="ansi-red-fg">:</span> Loci folder cannot be found
-</pre>
 </div>
 </div>
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>/Users/samuelrosean/anaconda3/lib/python3.11/site-packages/IPython/core/interactiveshell.py:3534: UserWarning: To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.
-  warn(&#34;To exit: use &#39;exit&#39;, &#39;quit&#39;, or Ctrl-D.&#34;, stacklevel=1)
-</pre>
 </div>
-</div>
-
-</div>
-
-</div>
-
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
