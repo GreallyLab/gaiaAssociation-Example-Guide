@@ -16,7 +16,7 @@ The third and final piece you will need to replicate our analysis is a copy of t
 
 Extra files included in this repository to help show the diverse functionality of gaiaAssociation are:
 
-1. a .tsv file containing the names of the 18 specific studies used for the gaiaAssociation analysis, this file can be used to select which studies you wish gaiaAssociation to analyize out of the thousands of incuded GWAS catalog studies. The usage of this is explained upon further within the example notebook
+1. a .csv file containing the names of the 18 specific studies used for the gaiaAssociation analysis, this file can be used to select which studies you wish gaiaAssociation to analyize out of the thousands of incuded GWAS catalog studies. The usage of this is explained upon further within the example notebook
 
 2. a .txt bed file for the Spark Genes set (https://spark-sf.s3.amazonaws.com/SPARK_gene_list.pdf), a list of genes implicated in Autism which you can use as a mask to focus only on open chroamtin peaks which overlap with these particular genes. This file was not used in the gaiaAssociation analysis, but provides an example of how gaia can be used to combine open chromatin regions with other location data you want to further hone in on during a research question.
 
