@@ -16,7 +16,7 @@ The third and final piece you will need to replicate our analysis is a copy of t
 
 
 
-Extra files included in this repository to help show the diverse functionality of gaiaAssociation are:
+Extra files included in this repository (in the extras folder) to help show the diverse functionality of gaiaAssociation are:
 
 1. A folder (atlas_peaks) which contains ATAC-seq peak BED files in .txt format for 222 cell types, including both adult and fetal cell types, identified in the paper 'A single-cell atlas of chromatin accessibility in the human genome by Zhang et al. (2021)' (PMC: 8664161). This provides perhaps the best set of cell types to reference with gaiaAssociation, and is the recommended group of ATAC bed files to use, though they were brought together for this use after the publication of the gaiaAssociation paper. The snATAC-seq reads were all aligned to reference genome GRCh38. The additional cell types provide a broader atlas of chromatin accessibility across cells found in over 40 tissue types, enhancing the ability to identify GWAS variant enrichment in regulatory loci mediated by different cell types. The data has been formated for use by gaiaAssociation including the proper column IDs: “Chromosome,” “Start,” and “End”.
 
